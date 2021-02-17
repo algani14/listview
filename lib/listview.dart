@@ -29,35 +29,52 @@ class MyApp extends StatelessWidget {
               child: Column(
                 children: <Widget>[
                   Container(
-                    padding: EdgeInsets.only(top: 10),
                     height: 200,
                     width: 300,
                     child: ListView.builder(
-                      shrinkWrap: true,
                       scrollDirection: Axis.horizontal,
-                      itemCount: 2,
                       itemBuilder: (context, index) {
                         return Container(
-                          margin: EdgeInsets.all(2),
-                          width: 150,
-                          height: 50,
-                          child: Card(
-                            color: Colors.blue,
-                            child: Center(
-                              child: Text(
-                                '${name[index]}',
-                                style: TextStyle(
-                                    fontSize: 22, color: Colors.white),
-                              ),
+                          width: 400,
+                          height: 150,
+                          color: colors[index],
+                          child: Center(
+                            child: Text(
+                              '${name[index]}',
+                              style:
+                                  TextStyle(fontSize: 22, color: Colors.white),
                             ),
                           ),
                         );
                       },
+                      itemCount: colors.length,
+                    ),
+                  ),
+                  Container(
+                    height: 300,
+                    width: 500,
+                    child: ListView.builder(
+                      scrollDirection: Axis.vertical,
+                      itemBuilder: (context, index) {
+                        return Container(
+                          width: 400,
+                          height: 150,
+                          color: colors[index],
+                          child: Center(
+                            child: Text(
+                              '${name[index]}',
+                              style:
+                                  TextStyle(fontSize: 22, color: Colors.white),
+                            ),
+                          ),
+                        );
+                      },
+                      itemCount: colors.length,
                     ),
                   ),
                   Container(
                     padding: EdgeInsets.only(top: 10),
-                    height: 300,
+                    height: 80,
                     child: ListView.builder(
                       shrinkWrap: true,
                       scrollDirection: Axis.horizontal,
@@ -69,32 +86,6 @@ class MyApp extends StatelessWidget {
                           height: 50,
                           child: Card(
                             color: colors[index],
-                            child: Center(
-                              child: Text(
-                                '${name[index]}',
-                                style: TextStyle(
-                                    fontSize: 22, color: Colors.white),
-                              ),
-                            ),
-                          ),
-                        );
-                      },
-                    ),
-                  ),
-                  Container(
-                    padding: EdgeInsets.only(top: 10),
-                    height: 80,
-                    child: ListView.builder(
-                      shrinkWrap: true,
-                      scrollDirection: Axis.horizontal,
-                      itemCount: colors2.length,
-                      itemBuilder: (context, index) {
-                        return Container(
-                          margin: EdgeInsets.all(2),
-                          width: 100,
-                          height: 50,
-                          child: Card(
-                            color: colors2[index],
                             child: Center(
                               child: Text(
                                 '${name[index]}',
