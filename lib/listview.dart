@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
-
-class MyApp extends StatelessWidget {
+class Haldua extends StatelessWidget {
   final List<Color> colors = [
     Colors.cyan,
     Colors.blue,
@@ -21,22 +19,71 @@ class MyApp extends StatelessWidget {
   final List<String> name = ['Albert', 'Wan', 'Xin', 'Lemon', 'Asep'];
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        body: SafeArea(
-          child: SingleChildScrollView(
-            child: Container(
-              child: Column(
-                children: <Widget>[
-                  Container(
-                    height: 200,
-                    width: 300,
-                    child: ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      itemBuilder: (context, index) {
-                        return Container(
-                          width: 400,
-                          height: 150,
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.indigo,
+        title: Text('Halaman kedua'),
+      ),
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Container(
+            child: Column(
+              children: <Widget>[
+                Container(
+                  height: 200,
+                  width: 300,
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (context, index) {
+                      return Container(
+                        width: 400,
+                        height: 150,
+                        color: colors[index],
+                        child: Center(
+                          child: Text(
+                            '${name[index]}',
+                            style: TextStyle(fontSize: 22, color: Colors.white),
+                          ),
+                        ),
+                      );
+                    },
+                    itemCount: colors.length,
+                  ),
+                ),
+                Container(
+                  height: 300,
+                  width: 500,
+                  child: ListView.builder(
+                    scrollDirection: Axis.vertical,
+                    itemBuilder: (context, index) {
+                      return Container(
+                        width: 400,
+                        height: 150,
+                        color: colors[index],
+                        child: Center(
+                          child: Text(
+                            '${name[index]}',
+                            style: TextStyle(fontSize: 22, color: Colors.white),
+                          ),
+                        ),
+                      );
+                    },
+                    itemCount: colors.length,
+                  ),
+                ),
+                Container(
+                  padding: EdgeInsets.only(top: 10),
+                  height: 80,
+                  child: ListView.builder(
+                    shrinkWrap: true,
+                    scrollDirection: Axis.horizontal,
+                    itemCount: colors.length,
+                    itemBuilder: (context, index) {
+                      return Container(
+                        margin: EdgeInsets.all(2),
+                        width: 100,
+                        height: 50,
+                        child: Card(
                           color: colors[index],
                           child: Center(
                             child: Text(
@@ -45,21 +92,25 @@ class MyApp extends StatelessWidget {
                                   TextStyle(fontSize: 22, color: Colors.white),
                             ),
                           ),
-                        );
-                      },
-                      itemCount: colors.length,
-                    ),
+                        ),
+                      );
+                    },
                   ),
-                  Container(
-                    height: 300,
-                    width: 500,
-                    child: ListView.builder(
-                      scrollDirection: Axis.vertical,
-                      itemBuilder: (context, index) {
-                        return Container(
-                          width: 400,
-                          height: 150,
-                          color: colors[index],
+                ),
+                Container(
+                  padding: EdgeInsets.only(top: 10),
+                  height: 80,
+                  child: ListView.builder(
+                    shrinkWrap: true,
+                    scrollDirection: Axis.horizontal,
+                    itemCount: colors2.length,
+                    itemBuilder: (context, index) {
+                      return Container(
+                        margin: EdgeInsets.all(2),
+                        width: 100,
+                        height: 50,
+                        child: Card(
+                          color: colors2[index],
                           child: Center(
                             child: Text(
                               '${name[index]}',
@@ -67,65 +118,22 @@ class MyApp extends StatelessWidget {
                                   TextStyle(fontSize: 22, color: Colors.white),
                             ),
                           ),
-                        );
-                      },
-                      itemCount: colors.length,
-                    ),
+                        ),
+                      );
+                    },
                   ),
-                  Container(
-                    padding: EdgeInsets.only(top: 10),
-                    height: 80,
-                    child: ListView.builder(
-                      shrinkWrap: true,
-                      scrollDirection: Axis.horizontal,
-                      itemCount: colors.length,
-                      itemBuilder: (context, index) {
-                        return Container(
-                          margin: EdgeInsets.all(2),
-                          width: 100,
-                          height: 50,
-                          child: Card(
-                            color: colors[index],
-                            child: Center(
-                              child: Text(
-                                '${name[index]}',
-                                style: TextStyle(
-                                    fontSize: 22, color: Colors.white),
-                              ),
-                            ),
-                          ),
-                        );
-                      },
+                ),
+                RaisedButton(
+                    textColor: Colors.white,
+                    color: Colors.red,
+                    padding: const EdgeInsets.all(8.0),
+                    child: new Text(
+                      "Halaman Selanjutnya",
                     ),
-                  ),
-                  Container(
-                    padding: EdgeInsets.only(top: 10),
-                    height: 80,
-                    child: ListView.builder(
-                      shrinkWrap: true,
-                      scrollDirection: Axis.horizontal,
-                      itemCount: colors2.length,
-                      itemBuilder: (context, index) {
-                        return Container(
-                          margin: EdgeInsets.all(2),
-                          width: 100,
-                          height: 50,
-                          child: Card(
-                            color: colors2[index],
-                            child: Center(
-                              child: Text(
-                                '${name[index]}',
-                                style: TextStyle(
-                                    fontSize: 22, color: Colors.white),
-                              ),
-                            ),
-                          ),
-                        );
-                      },
-                    ),
-                  ),
-                ],
-              ),
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/Haltiga');
+                    })
+              ],
             ),
           ),
         ),
